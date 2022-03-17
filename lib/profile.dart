@@ -115,6 +115,61 @@ class _ProfilePageState extends State<Profile> {
                             color: Colors.white),
                       ),
                     ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(top: 20),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(50),
+                          width: 120.0,
+                          height: 120.0,
+                          decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 155, 121, 0),
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Text("Artikel"),
+                        ),
+                        Container(
+                            padding: EdgeInsets.all(50),
+                            width: 120.0,
+                            height: 120.0,
+                            decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 155, 121, 0),
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Text("Artikel")),
+                        Padding(padding: EdgeInsets.only(top: 15)),
+                      ],
+                    ),
+                    Padding(padding: EdgeInsets.only(top: 15)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(50),
+                          width: 120.0,
+                          height: 120.0,
+                          decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 71, 201, 140),
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Text("Contact"),
+                        ),
+                        Container(
+                            padding: EdgeInsets.all(50),
+                            width: 120.0,
+                            height: 120.0,
+                            decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 71, 201, 140),
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Text("Contact")),
+                        Padding(padding: EdgeInsets.only(top: 15)),
+                      ],
+                    ),
+                    Padding(padding: EdgeInsets.only(top: 15)),
                     GestureDetector(
                       onTap: () {
                         _loadSampleJson();
@@ -124,32 +179,14 @@ class _ProfilePageState extends State<Profile> {
                         width: 250,
                         color: Colors.lightBlueAccent,
                         alignment: Alignment.center,
-                        child: const Text("See Profile"),
+                        child: const Text(
+                          "See Profile",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontStyle: FontStyle.italic,
+                              color: Colors.white),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.only(top: 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                      width: 120.0,
-                      height: 120.0,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Text("Artikel"),
-                    ),
-                    Container(
-                      width: 120.0,
-                      height: 120.0,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Text("Artikel"),
                     ),
                   ],
                 ),
