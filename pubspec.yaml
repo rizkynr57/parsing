@@ -60,6 +60,7 @@ flutter:
   assets:
   - sample.json
   - assets/img/profile.png
+  - assets/img/tema.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
