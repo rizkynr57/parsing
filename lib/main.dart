@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
-import 'package:rizkyn_perawatan_komputer/sample_json.dart';
+import 'package:data_parsing/sample_json.dart';
 import 'package:flutter/services.dart';
+import 'profile.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Profile());
 }
 
 class MyApp extends StatelessWidget {
