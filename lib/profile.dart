@@ -71,7 +71,7 @@ class _ProfilePageState extends State<Profile> {
                   children: [
                     Padding(padding: EdgeInsets.only(top: 50)),
                     Container(
-                      padding: EdgeInsets.all(10),
+                      padding: EdgeInsets.all(21),
                       width: 380,
                       height: 60,
                       decoration: BoxDecoration(
@@ -86,7 +86,7 @@ class _ProfilePageState extends State<Profile> {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.all(10),
+                      padding: EdgeInsets.all(21),
                       width: 380,
                       height: 60,
                       decoration: BoxDecoration(
@@ -101,7 +101,7 @@ class _ProfilePageState extends State<Profile> {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.all(10),
+                      padding: EdgeInsets.all(21),
                       width: 380,
                       height: 60,
                       decoration: BoxDecoration(
@@ -114,6 +114,42 @@ class _ProfilePageState extends State<Profile> {
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
                       ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        _loadSampleJson();
+                      },
+                      child: Container(
+                        height: 50,
+                        width: 250,
+                        color: Colors.lightBlueAccent,
+                        alignment: Alignment.center,
+                        child: const Text("See Profile"),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(top: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      width: 120.0,
+                      height: 120.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Text("Artikel"),
+                    ),
+                    Container(
+                      width: 120.0,
+                      height: 120.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Text("Artikel"),
                     ),
                   ],
                 ),
