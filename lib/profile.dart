@@ -1,6 +1,6 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:data_parsing/sample_json.dart';
-import 'dart:convert';
 import 'package:flutter/services.dart';
 
 class Profile extends StatefulWidget {
@@ -11,24 +11,29 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<Profile> {
-  late String _jsonContent = "";
   late String _name = "";
   late String _age = "";
-  late String _hobi = "";
   late String _username = "";
   late String _repo = "";
+  List _hobi = [];
+
   Future _loadSampleJson() async {
     String jsonString = await rootBundle.loadString("assets/sample.json");
     final jsonData = json.decode(jsonString);
     Sample sample = Sample.fromJson(jsonData);
+
     setState(() {
-      _jsonContent = sample.toString();
       _name = sample.name.toString();
       _age = sample.age.toString();
-      _hobi = sample.hobi.toString();
       _username = sample.github!.username.toString();
       _repo = sample.github!.repository.toString();
+      _hobi = sample.hobi!.toList();
     });
+  }
+
+  void initState() {
+    _loadSampleJson();
+    super.initState();
   }
 
   @override
@@ -58,7 +63,7 @@ class _ProfilePageState extends State<Profile> {
               Padding(padding: EdgeInsets.only(top: 25)),
               Container(
                 width: 400,
-                height: 250,
+                height: 210,
                 decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: <Color>[
@@ -100,21 +105,6 @@ class _ProfilePageState extends State<Profile> {
                             color: Colors.white),
                       ),
                     ),
-                    Container(
-                      padding: EdgeInsets.all(21),
-                      width: 380,
-                      height: 60,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          border: Border.all(color: Colors.white)),
-                      child: Text(
-                        "Hobi : " + _hobi,
-                        style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
-                      ),
-                    ),
                   ],
                 ),
               ),
@@ -126,14 +116,13 @@ class _ProfilePageState extends State<Profile> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Container(
-                          padding: EdgeInsets.all(50),
-                          width: 120.0,
-                          height: 120.0,
-                          decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 155, 121, 0),
-                              borderRadius: BorderRadius.circular(15)),
-                          child: Text("Artikel"),
-                        ),
+                            padding: EdgeInsets.all(50),
+                            width: 120.0,
+                            height: 120.0,
+                            decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 155, 121, 0),
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Text("Articles")),
                         Container(
                             padding: EdgeInsets.all(50),
                             width: 120.0,
@@ -141,8 +130,7 @@ class _ProfilePageState extends State<Profile> {
                             decoration: BoxDecoration(
                                 color: Color.fromARGB(255, 155, 121, 0),
                                 borderRadius: BorderRadius.circular(15)),
-                            child: Text("Artikel")),
-                        Padding(padding: EdgeInsets.only(top: 15)),
+                            child: Text("Articles")),
                       ],
                     ),
                     Padding(padding: EdgeInsets.only(top: 15)),
@@ -159,15 +147,49 @@ class _ProfilePageState extends State<Profile> {
                           child: Text("Contact"),
                         ),
                         Container(
-                            padding: EdgeInsets.all(50),
-                            width: 120.0,
-                            height: 120.0,
-                            decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 71, 201, 140),
-                                borderRadius: BorderRadius.circular(15)),
-                            child: Text("Contact")),
-                        Padding(padding: EdgeInsets.only(top: 15)),
+                          padding: EdgeInsets.all(50),
+                          width: 120.0,
+                          height: 120.0,
+                          decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 71, 201, 140),
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Text("Contact"),
+                        ),
                       ],
+                    ),
+                    Padding(padding: EdgeInsets.only(top: 15)),
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 16.0, vertical: 24.0),
+                      height: MediaQuery.of(context).size.height * 0.30,
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: _hobi.length,
+                          itemBuilder: (context, index) {
+                            return Container(
+                              width: MediaQuery.of(context).size.width * 0.7,
+                              child: Card(
+                                color: Colors.green,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Colors.purpleAccent,
+                                        Colors.deepPurpleAccent
+                                      ],
+                                    ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Colors.grey,
+                                          spreadRadius: 1,
+                                          blurRadius: 5,
+                                          offset: Offset(0, 1))
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            );
+                          }),
                     ),
                     Padding(padding: EdgeInsets.only(top: 15)),
                     GestureDetector(
